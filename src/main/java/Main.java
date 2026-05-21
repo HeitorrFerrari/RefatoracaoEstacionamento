@@ -14,6 +14,8 @@ public class Main {
                 "PR",
                 "87000-000");
 
+        DadosCobranca dadosCobranca = new DadosCobranca("Banco Acadêmico","1234", "98765-0", "Pix");
+
         Cliente cliente = new Cliente(
                 "Mariana Souza",
                 "123.456.789-00",
@@ -21,10 +23,9 @@ public class Main {
                 4200,
                 18,
                 true,
-                "Banco Acadêmico",
-                "1234",
-                "98765-0",
-                "Pix");
+                dadosCobranca);
+
+        Seguradora seguro = new Seguradora("Seguro total", "AP-889900", "0800-123-456");
 
         Veiculo veiculo = new Veiculo(
                 "ABC-1234",
@@ -32,9 +33,8 @@ public class Main {
                 "Prata",
                 LocalDateTime.of(2026, 6, 20, 9, 30),
                 LocalDateTime.of(2026, 6, 20, 12, 15),
-                "Seguro Total",
-                "AP-889900",
-                "0800-123-456");
+                seguro);
+
 
         Vaga vaga = new Vaga(
                 "A12",
@@ -48,7 +48,6 @@ public class Main {
         ReservaVaga reserva = new ReservaVaga(vaga, cliente);
         RegistroPagamento pagamento = new RegistroPagamento(ticket, cliente, new BigDecimal("48.5"));
         OperacaoEstacionamento operacao = new OperacaoEstacionamento();
-        CentralClientes centralClientes = new CentralClientes();
         PainelVagas painelVagas = new PainelVagas();
 
         estacionamento.imprimirDados();
@@ -67,7 +66,7 @@ public class Main {
         System.out.println();
 
         System.out.println("Minutos de permanência: " + operacao.calcularMinutosPermanencia(ticket));
-        System.out.println("Desconto do cliente: " + centralClientes.calcularDescontoCliente(cliente) + "%");
+        System.out.println("Desconto do cliente: " + cliente.calcularDescontoCliente() + "%");
         System.out.println("Status da vaga: " + painelVagas.descreverStatus(vaga));
         System.out.println();
 
