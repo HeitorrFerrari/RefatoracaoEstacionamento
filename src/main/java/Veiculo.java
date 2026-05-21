@@ -9,21 +9,16 @@ public class Veiculo {
     private LocalDateTime dataHoraEntrada;
     private LocalDateTime dataHoraSaidaPrevista;
 
-    private String seguradora;
-    private String numeroApolice;
-    private String telefoneAssistencia;
+    private Seguradora seguradora;
 
     public Veiculo(String placa, String modelo, String cor,
-                   LocalDateTime dataHoraEntrada, LocalDateTime dataHoraSaidaPrevista,
-                   String seguradora, String numeroApolice, String telefoneAssistencia) {
+                   LocalDateTime dataHoraEntrada, LocalDateTime dataHoraSaidaPrevista, Seguradora seguradora) {
         this.placa = placa;
         this.modelo = modelo;
         this.cor = cor;
         this.dataHoraEntrada = dataHoraEntrada;
         this.dataHoraSaidaPrevista = dataHoraSaidaPrevista;
         this.seguradora = seguradora;
-        this.numeroApolice = numeroApolice;
-        this.telefoneAssistencia = telefoneAssistencia;
     }
 
     public void imprimirDados() {

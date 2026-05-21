@@ -26,15 +26,16 @@ public class Main {
                 "98765-0",
                 "Pix");
 
+        Seguradora seguro = new Seguradora("Seguro total", "AP-889900", "0800-123-456");
+
         Veiculo veiculo = new Veiculo(
                 "ABC-1234",
                 "Honda Civic",
                 "Prata",
                 LocalDateTime.of(2026, 6, 20, 9, 30),
                 LocalDateTime.of(2026, 6, 20, 12, 15),
-                "Seguro Total",
-                "AP-889900",
-                "0800-123-456");
+                seguro);
+
 
         Vaga vaga = new Vaga(
                 "A12",
