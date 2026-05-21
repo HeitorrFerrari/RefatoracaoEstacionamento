@@ -1,4 +1,3 @@
-import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
 public class TicketEstacionamento {
@@ -16,23 +15,16 @@ public class TicketEstacionamento {
     }
 
     public void imprimirTicket() {
-        LocalDateTime entrada = veiculo.getDataHoraEntrada();
 
-        String entradaFormatada = entrada.getDayOfMonth() + "/"
-                + entrada.getMonthValue() + "/"
-                + entrada.getYear() + " "
-                + entrada.getHour() + ":"
-                + String.format("%02d", entrada.getMinute());
+        InformacoesHorario entrada =
+                new InformacoesHorario(veiculo.getDataHoraEntrada());
 
         System.out.println("Ticket: " + codigo);
         System.out.println("Veículo: " + veiculo.getPlaca());
         System.out.println("Vaga: " + vaga.getCodigo());
-        System.out.println("Entrada: " + entradaFormatada);
+        System.out.println("Entrada: " + entrada.formatarDataHora());
 
-        if (entrada.getDayOfWeek() == DayOfWeek.SATURDAY
-                || entrada.getDayOfWeek() == DayOfWeek.SUNDAY
-                || entrada.getHour() < 7
-                || entrada.getHour() >= 22) {
+        if (entrada.isEspecial()) {
             System.out.println("Período: horário especial");
         } else {
             System.out.println("Período: horário regular");
