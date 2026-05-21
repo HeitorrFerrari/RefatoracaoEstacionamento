@@ -48,7 +48,6 @@ public class Main {
         ReservaVaga reserva = new ReservaVaga(vaga, cliente);
         RegistroPagamento pagamento = new RegistroPagamento(ticket, cliente, new BigDecimal("48.5"));
         OperacaoEstacionamento operacao = new OperacaoEstacionamento();
-        CentralClientes centralClientes = new CentralClientes();
         PainelVagas painelVagas = new PainelVagas();
 
         estacionamento.imprimirDados();
@@ -67,7 +66,7 @@ public class Main {
         System.out.println();
 
         System.out.println("Minutos de permanência: " + operacao.calcularMinutosPermanencia(ticket));
-        System.out.println("Desconto do cliente: " + centralClientes.calcularDescontoCliente(cliente) + "%");
+        System.out.println("Desconto do cliente: " + cliente.calcularDescontoCliente() + "%");
         System.out.println("Status da vaga: " + painelVagas.descreverStatus(vaga));
         System.out.println();
 

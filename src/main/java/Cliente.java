@@ -35,6 +35,22 @@ public class Cliente {
                 + " | Método preferencial: " + dadosCobranca.getMetodoPagamentoPreferencial();
     }
 
+    public int calcularDescontoCliente() {
+        if (mensalista && pontosFidelidade >= 4000) {
+            return 20;
+        }
+
+        if (mesesComoCliente >= 12 && pontosFidelidade >= 2000) {
+            return 10;
+        }
+
+        if (pontosFidelidade >= 1000) {
+            return 5;
+        }
+
+        return 0;
+    }
+
     public String getNome() {
         return nome;
     }
