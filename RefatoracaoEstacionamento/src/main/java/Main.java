@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 public class Main {
 
     public static void main(String[] args) {
+
         Estacionamento estacionamento = new Estacionamento(
                 "ParkTech Centro",
                 "12.345.678/0001-90",
@@ -39,12 +40,19 @@ public class Main {
                 "Setor Azul",
                 true,
                 true,
-                "Mariana Souza",
                 LocalDateTime.of(2026, 6, 20, 9, 0));
 
-        TicketEstacionamento ticket = new TicketEstacionamento("TCK-1001", veiculo, vaga, false);
-        ReservaVaga reserva = new ReservaVaga(vaga, cliente);
-        RegistroPagamento pagamento = new RegistroPagamento(ticket, cliente, new BigDecimal("48.5"));
+        TicketEstacionamento ticket = new TicketEstacionamento(
+                "TCK-1001",
+                veiculo,
+                vaga,
+                false);
+
+        RegistroPagamento pagamento = new RegistroPagamento(
+                ticket,
+                cliente,
+                new BigDecimal("48.50"));
+
         OperacaoEstacionamento operacao = new OperacaoEstacionamento();
         CentralClientes centralClientes = new CentralClientes();
         PainelVagas painelVagas = new PainelVagas();
@@ -61,12 +69,18 @@ public class Main {
         ticket.imprimirTicket();
         System.out.println();
 
-        reserva.imprimirReserva();
-        System.out.println();
+        // REMOVIDO:
+        // reserva.imprimirReserva();
 
-        System.out.println("Minutos de permanência: " + operacao.calcularMinutosPermanencia(ticket));
-        System.out.println("Desconto do cliente: " + centralClientes.calcularDescontoCliente(cliente) + "%");
-        System.out.println("Status da vaga: " + painelVagas.descreverStatus(vaga));
+        System.out.println("Minutos de permanência: "
+                + operacao.calcularMinutosPermanencia(ticket));
+
+        System.out.println("Desconto do cliente: "
+                + centralClientes.calcularDescontoCliente(cliente) + "%");
+
+        System.out.println("Status da vaga: "
+                + painelVagas.descreverStatus(vaga));
+
         System.out.println();
 
         pagamento.imprimirComprovante();
