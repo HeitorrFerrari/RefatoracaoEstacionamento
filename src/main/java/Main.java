@@ -14,7 +14,7 @@ public class Main {
                 "PR",
                 "87000-000");
 
-        DadosCobranca dadosCobranca = new DadosCobranca("Banco Acadêmico","1234", "98765-0", "Pix");
+        DadosCobranca dadosCobranca = new DadosCobranca("Banco Acadêmico", "1234", "98765-0", "Pix");
 
         Cliente cliente = new Cliente(
                 "Mariana Souza",
@@ -35,7 +35,6 @@ public class Main {
                 LocalDateTime.of(2026, 6, 20, 12, 15),
                 seguro);
 
-
         Vaga vaga = new Vaga(
                 "A12",
                 "Setor Azul",
@@ -47,8 +46,6 @@ public class Main {
         TicketEstacionamento ticket = new TicketEstacionamento("TCK-1001", veiculo, vaga, false);
         ReservaVaga reserva = new ReservaVaga(vaga, cliente);
         RegistroPagamento pagamento = new RegistroPagamento(ticket, cliente, new BigDecimal("48.5"));
-        OperacaoEstacionamento operacao = new OperacaoEstacionamento();
-        PainelVagas painelVagas = new PainelVagas();
 
         estacionamento.imprimirDados();
         System.out.println();
@@ -65,9 +62,9 @@ public class Main {
         reserva.imprimirReserva();
         System.out.println();
 
-        System.out.println("Minutos de permanência: " + operacao.calcularMinutosPermanencia(ticket));
+        System.out.println("Minutos de permanência: " + ticket.calcularMinutosPermanencia());
         System.out.println("Desconto do cliente: " + cliente.calcularDescontoCliente() + "%");
-        System.out.println("Status da vaga: " + painelVagas.descreverStatus(vaga));
+        System.out.println("Status da vaga: " + vaga.descreverStatus());
         System.out.println();
 
         pagamento.imprimirComprovante();
