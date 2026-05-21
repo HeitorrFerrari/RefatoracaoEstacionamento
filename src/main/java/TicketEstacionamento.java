@@ -1,3 +1,4 @@
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class TicketEstacionamento {
@@ -35,6 +36,13 @@ public class TicketEstacionamento {
         } else {
             System.out.println("Situação: ticket regular");
         }
+    }
+
+    public long calcularMinutosPermanencia() {
+        return Duration.between(
+                getDataHoraEntrada(),
+                getDataHoraSaidaPrevista()
+        ).toMinutes();
     }
 
     public String getCodigo() {
