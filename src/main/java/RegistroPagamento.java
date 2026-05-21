@@ -14,6 +14,9 @@ public class RegistroPagamento {
     }
 
     public void imprimirComprovante() {
+
+        ValorDecinal valorDecinal = new ValorDecinal(valor);
+
         String valorFormatado = "R$ "
                 + valor.setScale(2, RoundingMode.HALF_UP)
                        .toString()
@@ -21,9 +24,9 @@ public class RegistroPagamento {
 
         System.out.println("Pagamento do ticket: " + ticket.getCodigo());
         System.out.println("Cliente: " + cliente.getNome());
-        System.out.println("Valor: " + valorFormatado);
+        System.out.println("Valor: " + valorDecinal.formatarEmReais());
 
-        if (valor.compareTo(new BigDecimal("50.00")) >= 0) {
+        if (valorDecinal.isAltoValor()) {
             System.out.println("Classificação: pagamento de alto valor");
         } else {
             System.out.println("Classificação: pagamento comum");
