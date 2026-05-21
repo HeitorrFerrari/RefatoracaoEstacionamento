@@ -14,6 +14,8 @@ public class Main {
                 "PR",
                 "87000-000");
 
+        DadosCobranca dadosCobranca = new DadosCobranca("Banco Acadêmico","1234", "98765-0", "Pix");
+
         Cliente cliente = new Cliente(
                 "Mariana Souza",
                 "123.456.789-00",
@@ -21,10 +23,7 @@ public class Main {
                 4200,
                 18,
                 true,
-                "Banco Acadêmico",
-                "1234",
-                "98765-0",
-                "Pix");
+                dadosCobranca);
 
         Seguradora seguro = new Seguradora("Seguro total", "AP-889900", "0800-123-456");
 

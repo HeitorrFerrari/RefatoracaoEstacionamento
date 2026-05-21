@@ -7,24 +7,18 @@ public class Cliente {
     private int mesesComoCliente;
     private boolean mensalista;
 
-    private String banco;
-    private String agencia;
-    private String conta;
-    private String metodoPagamentoPreferencial;
+    private DadosCobranca dadosCobranca;
 
     public Cliente(String nome, String cpf, String telefone,
                    int pontosFidelidade, int mesesComoCliente, boolean mensalista,
-                   String banco, String agencia, String conta, String metodoPagamentoPreferencial) {
+                   DadosCobranca dadosCobranca) {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
         this.pontosFidelidade = pontosFidelidade;
         this.mesesComoCliente = mesesComoCliente;
         this.mensalista = mensalista;
-        this.banco = banco;
-        this.agencia = agencia;
-        this.conta = conta;
-        this.metodoPagamentoPreferencial = metodoPagamentoPreferencial;
+        this.dadosCobranca = dadosCobranca;
     }
 
     public void imprimirResumo() {
