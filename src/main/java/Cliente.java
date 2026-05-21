@@ -31,8 +31,8 @@ public class Cliente {
     }
 
     public String getDadosCobrancaFormatados() {
-        return banco + " | Agência " + agencia + " | Conta " + conta
-                + " | Método preferencial: " + metodoPagamentoPreferencial;
+        return dadosCobranca.getBanco() + " | Agência " + dadosCobranca.getAgencia() + " | Conta " + dadosCobranca.getConta()
+                + " | Método preferencial: " + dadosCobranca.getMetodoPagamentoPreferencial();
     }
 
     public String getNome() {
@@ -57,21 +57,5 @@ public class Cliente {
 
     public boolean isMensalista() {
         return mensalista;
-    }
-
-    public String getBanco() {
-        return banco;
-    }
-
-    public String getAgencia() {
-        return agencia;
-    }
-
-    public String getConta() {
-        return conta;
-    }
-
-    public String getMetodoPagamentoPreferencial() {
-        return metodoPagamentoPreferencial;
     }
 }

@@ -31,7 +31,7 @@ public class Veiculo {
     }
 
     public String getDadosSeguroFormatados() {
-        return seguradora + " | Apólice " + numeroApolice + " | Assistência " + telefoneAssistencia;
+        return seguradora.getSeguradora() + " | Apólice " + seguradora.getNumeroApolice() + " | Assistência " + seguradora.getTelefoneAssistencia();
     }
 
     public String getPlaca() {
@@ -52,17 +52,5 @@ public class Veiculo {
 
     public LocalDateTime getDataHoraSaidaPrevista() {
         return dataHoraSaidaPrevista;
-    }
-
-    public String getSeguradora() {
-        return seguradora;
-    }
-
-    public String getNumeroApolice() {
-        return numeroApolice;
-    }
-
-    public String getTelefoneAssistencia() {
-        return telefoneAssistencia;
     }
 }
